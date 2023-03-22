@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tennis_players?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto:
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+
+tennis_players:
+  admin:
+    defaultpass: ${DEFAULT_PASS:test}
