@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tennis_players?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
-    password:
+    password: Bombata99$
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
