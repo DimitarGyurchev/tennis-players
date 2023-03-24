@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <span th:replace="~{fragments/head}"></span>
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<div class="container">
+
+    <h2 class="">Register User</h2>
+
+    <form th:method="POST"
+          th:action="@{/users/register}"
+          th:object="${userRegisterForm}"
+          class="">
+
+        <div class="">
+            <div class="">
+
+                <label th:for="firstName"
+                       class="">First Name</label>
+
+                <input type="text"
+                       th:field="*{firstName}"
+                       class=""
+                       placeholder="First name"
+                />
+
+                <p th:if="${#fields.hasErrors('firstName')}"
+                   class="">
+                    First name is required.
+                </p>
+
+            </div>
+
+            <div class="">
+
+                <label th:for="lastName"
+                       class="">Last Name</label>
+
+                <input th:field="*{lastName}"
+                       class=""
+                       placeholder="Last name"
+                />
+
+                <p th:if="${#fields.hasErrors('lastName')}"
+                   class="">
+                    Last name is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="">
+
+                <label th:for="email"
+                       class="">
+                    Username
+                </label>
+
+                <input th:field="*{email}"
+                       class=""
+                       placeholder="Email"
+                       th:value="*{email}"/>
+                <p th:if="${#fields.hasErrors('email')}"
+                   class="">
+                    Valid email is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="">
+                <label for="password"
+                       class="">
+                    Password
+                </label>
+                <input id="password"
+                       name="password"
+                       type="password"
+                       class=""
+                       placeholder="Password"
+                />
+                <p th:if="${#fields.hasErrors('password')}"
+                   class="">
+                    Password is required.
+                </p>
+            </div>
+
+            <div class="">
+
+                <label for="confirmPassword"
+                       class="">
+                    Confirm Password
+                </label>
+
+                <input id="confirmPassword"
+                       name="confirmPassword"
+                       type="password"
+                       min="2"
+                       max="20"
+                       class=""
+                       placeholder="Password"/>
+
+                <p th:if="${#fields.hasErrors('confirmPassword')}"
+                   class="">
+                    Passwords does not match.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="">
+            <div class="">
+                <div class="">
+                    <input type="submit" class="" value="Register"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+
+</body>
+</html>

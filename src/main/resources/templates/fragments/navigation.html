@@ -5,15 +5,48 @@
 <head></head>
 <body>
 
-<nav  th:fragment="navigation">
+<nav th:fragment="navigation">
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">My Team</a></li>
-        <li><a href="#">Create Tennis Player</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Login</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+
+        <th:block sec:authorize="!isAuthenticated()">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/players/all}">All Tennis Players</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/coaches/all}">All Tennis Coaches</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users/register}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users/login}">Login</a>
+            </li>
+
+        </th:block>
+
+        <th:block sec:authorize="isAuthenticated()">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/players/create}">Create Tennis Player</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/players/all}">My Team</a>
+            </li>
+
+            <li class="nav-item">
+                <form method="POST" th:action="@{/users/logout}">
+                    <button type="submit" name="submit" value="value">Logout
+                    </button>
+                </form>
+            </li>
+
+        </th:block>
     </ul>
+
 </nav>
 
 

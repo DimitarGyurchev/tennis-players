@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<div class="container">
+    <h2 class="">Login</h2>
+
+    <form th:method="POST"
+          th:action="@{/users/login}"
+          class="">
+
+        <div class="">
+            <label for="username"
+                   class="">
+                Username
+            </label>
+
+            <input value="username"
+                   id="username"
+                   name="username"
+                   th:value="${username}"
+                   type="text"
+                   min="2"
+                   max="50"
+                   class=""
+                   placeholder="Username"/>
+        </div>
+
+        <div class="">
+            <label for="password" class="">Password</label>
+            <input value="password" id="password" name="password" type="password" min="2"
+                   max="20"  class=""
+                   placeholder="Password"/>
+
+        </div>
+
+        <p th:if="${bad_credentials}"
+           class="">
+            Invalid username or password.
+        </p>
+
+        <div class="">
+            <div class="">
+                <div class="">
+                    <input type="submit" class="" value="Login"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>
