@@ -4,6 +4,30 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
 }
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease-out;
+}
+
+nav a:hover {
+    color:  #2E8B57;
+}
+
 
