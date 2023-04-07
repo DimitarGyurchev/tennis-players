@@ -24,11 +24,29 @@ nav a {
     color: white;
     text-decoration: none;
     transition: color 0.2s ease-out;
+    background-color: #333;
 }
 
 nav a:hover {
     color:  #2E8B57;
 }
+.nav-item {
+    margin: 20px 5px;
+}
+
+.nav__button {
+    color: white;
+    text-decoration: none;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+}
+
+.nav__button:hover {
+    background-color: #2E8B57;
+}
+
 .home__container {
     display: flex;
     flex-direction: column;
@@ -165,6 +183,52 @@ input[type="submit"]:hover {
     color: red;
     font-size: large;
 }
+
+.container__create-player {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #333;
+}
+
+.create__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.create__input {
+    display: block;
+    width: 95%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.create__button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create__button:hover {
+    background-color: #2E8B57;
+}
+
+.title__create{
+    color: white;
+    font-size: large;
+    text-align: center;
+}
+
 
 
 

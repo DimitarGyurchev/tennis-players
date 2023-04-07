@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+
+<form action="#" th:action="@{/players/create}" th:object="${tennis_player}" method="post" class="container__create-player">
+    <h1 class="title__create">Create Tennis Player</h1>
+    <label class="create__label">First Name:</label>
+    <input type="text" class="create__input" th:field="*{firstName}" />
+
+    <label class="create__label">Last Name:</label>
+    <input type="text" class="create__input" th:field="*{lastName}" />
+
+    <label class="create__label">Age:</label>
+    <input type="number" class="create__input" th:field="*{age}" />
+
+    <label class="create__label">Image URL:</label>
+    <input type="text" class="create__input" th:field="*{imageUrl}" />
+
+    <label class="create__label">Nationality:</label>
+    <input type="text" class="create__input" th:field="*{nationality}" />
+
+    <label class="create__label">Ranking:</label>
+    <input type="number" class="create__input" th:field="*{ranking}" />
+
+    <input type="submit" class="create__button" value="Create" />
+</form>
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+
+</html>

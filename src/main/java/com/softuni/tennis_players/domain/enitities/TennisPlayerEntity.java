@@ -26,6 +26,18 @@ public class TennisPlayerEntity extends  BaseEntity{
     @Column
     private int age;
 
+    @Column
+    private int ranking;
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public TennisPlayerEntity setRanking(int ranking) {
+        this.ranking = ranking;
+        return this;
+    }
+
     public TennisPlayerEntity() {
     }
 
