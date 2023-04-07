@@ -17,7 +17,7 @@ nav ul {
 }
 
 nav li {
-    margin: 0 10px;
+    margin: 20px 5px;
 }
 
 nav a {
@@ -29,5 +29,154 @@ nav a {
 nav a:hover {
     color:  #2E8B57;
 }
+.home__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    margin: 20px 100px;
+    background-color: #333;
+}
+
+.title__home {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.description__home {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.container__login {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #333;
+}
+
+.title__login {
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.username__login,
+.password__login {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 95%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+
+input[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button__login {
+    text-align: center;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #2E8B57;
+}
+.form__register {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #333;
+}
+
+.form__register h2 {
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.form__register label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.form__register input[type="text"],
+.form__register input[type="password"] {
+    display: block;
+    width: 95%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+}
+
+.form__register input[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form__register input[type="submit"]:hover {
+    background-color: #2E8B57;
+}
+
+.register__confirmPassword,.register__password,.register__email,.register__lastName,.register__firstName{
+    color: red;
+    font-size: large;
+}
+
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 
 

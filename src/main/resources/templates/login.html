@@ -10,14 +10,14 @@
     <nav th:replace="~{fragments/navigation}"></nav>
 </div>
 
-<div class="container">
-    <h2 class="">Login</h2>
+<div class="container__login">
+    <h2 class="title__login">Login</h2>
 
     <form th:method="POST"
           th:action="@{/users/login}"
           class="">
 
-        <div class="">
+        <div class="username__login">
             <label for="username"
                    class="">
                 Username
@@ -34,7 +34,7 @@
                    placeholder="Username"/>
         </div>
 
-        <div class="">
+        <div class="password__login">
             <label for="password" class="">Password</label>
             <input value="password" id="password" name="password" type="password" min="2"
                    max="20"  class=""
@@ -50,7 +50,7 @@
         <div class="">
             <div class="">
                 <div class="">
-                    <input type="submit" class="" value="Login"/>
+                    <input type="submit" class="button__login" value="Login"/>
                 </div>
             </div>
         </div>

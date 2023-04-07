@@ -2,18 +2,16 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tennis_players?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: root
+    username: ${MYSQL_USER:root}
     password: Bombata99$
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto:
+      ddl-auto: update
     defer-datasource-initialization: true
   sql:
     init:
       mode: always
 
 
-tennis_players:
-  admin:
-    defaultpass: ${DEFAULT_PASS:test}
+

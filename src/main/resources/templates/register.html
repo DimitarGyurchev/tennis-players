@@ -11,120 +11,121 @@
     <nav th:replace="~{fragments/navigation}"></nav>
 </div>
 
-<div class="container">
+
+
+<form th:method="POST"
+      th:action="@{/users/register}"
+      th:object="${userRegisterForm}"
+      class="form__register">
 
     <h2 class="">Register User</h2>
-
-    <form th:method="POST"
-          th:action="@{/users/register}"
-          th:object="${userRegisterForm}"
-          class="">
-
+    <div class="">
         <div class="">
-            <div class="">
 
-                <label th:for="firstName"
-                       class="">First Name</label>
+            <label th:for="firstName"
+                   class="">First Name</label>
 
-                <input type="text"
-                       th:field="*{firstName}"
-                       class=""
-                       placeholder="First name"
-                />
+            <input type="text"
+                   th:field="*{firstName}"
+                   class="register__firstName"
+                   placeholder="First name"
+            />
 
-                <p th:if="${#fields.hasErrors('firstName')}"
-                   class="">
-                    First name is required.
-                </p>
+            <p th:if="${#fields.hasErrors('firstName')}"
+               class="register__firstName">
+                First name is required.
+            </p>
 
-            </div>
-
-            <div class="">
-
-                <label th:for="lastName"
-                       class="">Last Name</label>
-
-                <input th:field="*{lastName}"
-                       class=""
-                       placeholder="Last name"
-                />
-
-                <p th:if="${#fields.hasErrors('lastName')}"
-                   class="">
-                    Last name is required.
-                </p>
-            </div>
         </div>
 
         <div class="">
-            <div class="">
 
-                <label th:for="email"
-                       class="">
-                    Username
-                </label>
+            <label th:for="lastName"
+                   class="">Last Name</label>
 
-                <input th:field="*{email}"
-                       class=""
-                       placeholder="Email"
-                       th:value="*{email}"/>
-                <p th:if="${#fields.hasErrors('email')}"
+            <input th:field="*{lastName}"
+                   class="register__lastName"
+                   placeholder="Last name"
+                   type="text"
+            />
+
+            <p th:if="${#fields.hasErrors('lastName')}"
+               class="register__lastName">
+                Last name is required.
+            </p>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="">
+
+            <label th:for="email"
                    class="">
-                    Valid email is required.
-                </p>
-            </div>
+                Username
+            </label>
+
+            <input th:field="*{email}"
+                   class="register__email"
+                   placeholder="Email"
+                   th:value="*{email}"
+                   type="text"/>
+            <p th:if="${#fields.hasErrors('email')}"
+               class="register__email">
+                Valid email is required.
+            </p>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="">
+            <label for="password"
+                   class="">
+                Password
+            </label>
+            <input id="password"
+                   name="password"
+                   type="password"
+                   class="register__password"
+                   placeholder="Password"
+            />
+            <p th:if="${#fields.hasErrors('password')}"
+               class="register__password">
+                Password is required.
+            </p>
         </div>
 
         <div class="">
-            <div class="">
-                <label for="password"
-                       class="">
-                    Password
-                </label>
-                <input id="password"
-                       name="password"
-                       type="password"
-                       class=""
-                       placeholder="Password"
-                />
-                <p th:if="${#fields.hasErrors('password')}"
+
+            <label for="confirmPassword"
                    class="">
-                    Password is required.
-                </p>
-            </div>
+                Confirm Password
+            </label>
 
-            <div class="">
+            <input id="confirmPassword"
+                   name="confirmPassword"
+                   type="password"
+                   min="2"
+                   max="20"
+                   class="register__confirmPassword"
+                   placeholder="Password"/>
 
-                <label for="confirmPassword"
-                       class="">
-                    Confirm Password
-                </label>
+            <p th:if="${#fields.hasErrors('confirmPassword')}"
+               class="register__confirmPassword">
+                Passwords does not match.
+            </p>
 
-                <input id="confirmPassword"
-                       name="confirmPassword"
-                       type="password"
-                       min="2"
-                       max="20"
-                       class=""
-                       placeholder="Password"/>
-
-                <p th:if="${#fields.hasErrors('confirmPassword')}"
-                   class="">
-                    Passwords does not match.
-                </p>
-
-            </div>
         </div>
+    </div>
 
+    <div class="">
         <div class="">
             <div class="">
-                <div class="">
-                    <input type="submit" class="" value="Register"/>
-                </div>
+                <input type="submit" class="register__submit" value="Register"/>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>
+
 
 <div>
     <footer th:replace="~{fragments/footer}"></footer>
