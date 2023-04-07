@@ -3,6 +3,10 @@ package com.softuni.tennis_players.services;
 import com.softuni.tennis_players.domain.dtos.binding.UserRegisterFormDto;
 import com.softuni.tennis_players.domain.enitities.UserEntity;
 import com.softuni.tennis_players.repositories.UserRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +30,12 @@ public class UserService {
                 setPassword(passwordEncoder.encode(registrationDTO.getPassword()));
 
         userRepository.save(userEntity);
+    }
+
+
+    public User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        return userRepository.findByUsername(currentUserName);
     }
 }

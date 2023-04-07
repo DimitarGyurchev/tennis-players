@@ -199,7 +199,8 @@ input[type="submit"]:hover {
     color: white;
 }
 
-.create__input {
+
+.create__input , .create__select {
     display: block;
     width: 95%;
     padding: 10px 10px;
@@ -207,6 +208,9 @@ input[type="submit"]:hover {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
+}
+.create__select {
+    width: 100%;
 }
 
 .create__button {
@@ -228,19 +232,133 @@ input[type="submit"]:hover {
     font-size: large;
     text-align: center;
 }
+.player {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #333;
+}
+.player-info {
+    flex-grow: 1;
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.player-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.player-details div {
+    margin-right: 20px;
+}
+
+.player-details div span {
+    font-weight: bold;
+}
+
+.catalog__body {
+    background-color: #333;
+}
+
+.catalog_container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.player img {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.player-name,
+.player-details div span {
+    color: #fff;
+}
+
+.catalog__title{
+    color:white;
+    background-color: #333;
+    font-size: large;
+    text-align: center;
+    margin: 10px 0;
+    padding: 20px 0 ;
+}
+
+.details__button {
+    color: white;
+    text-decoration: none;
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+    padding: 5px;
+    font-size: medium;
+    margin: 10px 0 ;
+}
+
+.details__button:hover {
+    background-color: #2E8B57;
+}
+.details-container {
+    display: flex;
+    align-items: center;
+    margin : 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #333;
+    width: 50%;
+
+}
+
+.details-img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    width: 50%;
+    margin: 20px 0 ;
+}
+
+.details-name {
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+.details-details div {
+    margin-bottom: 5px;
+}
+
 
 
 
 
 
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
+
 
 
 

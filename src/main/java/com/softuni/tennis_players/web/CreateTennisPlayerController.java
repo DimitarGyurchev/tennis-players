@@ -26,7 +26,7 @@ public class CreateTennisPlayerController {
     @PostMapping("/create")
     public String createPlayer(@ModelAttribute("tennis_player") TennisPlayerModel tennisPlayer) {
         tennisPlayerService.createPlayer(tennisPlayer);
-        return "redirect:/players";
+        return "redirect:/catalog";
     }
 
 }

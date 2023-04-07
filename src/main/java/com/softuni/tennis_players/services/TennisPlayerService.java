@@ -3,18 +3,24 @@ package com.softuni.tennis_players.services;
 import com.softuni.tennis_players.domain.dtos.model.TennisPlayerModel;
 import com.softuni.tennis_players.domain.enitities.TennisPlayerEntity;
 import com.softuni.tennis_players.repositories.TennisPlayerRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TennisPlayerService {
 
     private final TennisPlayerRepository tennisPlayerRepository;
 
-    public TennisPlayerService(TennisPlayerRepository playerRepository) {
+    private final UserService userService;
+
+    public TennisPlayerService(TennisPlayerRepository playerRepository, UserService userService) {
         this.tennisPlayerRepository = playerRepository;
+        this.userService = userService;
     }
 
     public List<TennisPlayerEntity> getAllPlayers() {
@@ -37,6 +43,13 @@ public class TennisPlayerService {
 
         return tennisPlayerRepository.save(tennisPlayerEntity);
     }
+    public List<TennisPlayerEntity> findAllPlayersByCurrentUser() {
+        User currentUser = userService.getCurrentUser();
+        return tennisPlayerRepository.findAllByCreatedBy(currentUser.getId().toString());
+    }
+
+
+
 
 
     public void deletePlayer(Long id) {

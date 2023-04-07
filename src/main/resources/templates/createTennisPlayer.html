@@ -30,6 +30,16 @@
     <label class="create__label">Ranking:</label>
     <input type="number" class="create__input" th:field="*{ranking}" />
 
+    <label class="create__label">Player Style:</label>
+    <select class="create__select" th:field="*{playerStyle}">
+        <option value="AGGRESSIVE_BASELINER">Aggressive Baseliner</option>
+        <option value="SERVE_AND_VOLLEYER">Serve and Volleyer</option>
+        <option value="COUNTERPUNCHER">Counterpuncher</option>
+        <option value="ALL_COURT">All Court</option>
+        <option value="JUNK_BALLER">Junk Baller</option>
+        <option value="PUSHER">Pusher</option>
+    </select>
+
     <input type="submit" class="create__button" value="Create" />
 </form>
 

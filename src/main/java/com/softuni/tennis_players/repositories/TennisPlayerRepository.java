@@ -15,4 +15,6 @@ public interface TennisPlayerRepository extends JpaRepository<TennisPlayerEntity
     List<TennisPlayerEntity> findByAgeLessThanEqual(int age);
     List<TennisPlayerEntity> findByRankingGreaterThanEqual(int ranking);
     List<TennisPlayerEntity> findByRankingLessThanEqual(int ranking);
+    List<TennisPlayerEntity> findAllByCreatedBy(String user);
+
 }

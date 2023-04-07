@@ -2,6 +2,7 @@ package com.softuni.tennis_players.domain.enitities;
 
 import com.softuni.tennis_players.domain.enums.PlayerStyle;
 import jakarta.persistence.*;
+import org.springframework.security.core.userdetails.User;
 
 @Entity
 @Table(name="tennis_players")
@@ -28,6 +29,11 @@ public class TennisPlayerEntity extends  BaseEntity{
 
     @Column
     private int ranking;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity createdBy;
+
 
     public int getRanking() {
         return ranking;

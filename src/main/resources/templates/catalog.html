@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head}"> </head>
+<body class="catalog__body">
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<div class="catalog_container">
+    <h1 class="catalog__title">Tennis Player Catalog</h1>
+    <div th:each="player : ${players}" class="player">
+        <img th:src="${player.imageUrl}" alt="player image">
+        <div class="player-info">
+            <div class="player-name" th:text="${player.firstName + ' ' + player.lastName}"></div>
+            <div class="player-details">
+                <div><a th:href="@{'/players/' + ${player.id}}"><button class="details__button">Details</button></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head}">
+</head>
+<body>
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+<div class="details-container">
+    <img class="details-img" th:src="${player.imageUrl}" alt="player image">
+    <div class="details-info">
+        <div class="details-name" th:text="${player.firstName + ' ' + player.lastName}"></div>
+        <div class="details-details">
+            <div class="details-age"><span>Age:</span> <span th:text="${player.age}"></span></div>
+            <div class="details-nationality"><span>Nationality:</span> <span th:text="${player.nationality}"></span></div>
+            <div class="details-ranking"><span>Ranking:</span> <span th:text="${player.ranking}"></span></div>
+            <div class="details-player-style"><span>Player Style:</span> <span th:text="${player.playerStyle}"></span></div>
+        </div>
+    </div>
+</div>
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>
