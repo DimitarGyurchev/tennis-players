@@ -10,11 +10,14 @@
         <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
         </li>
+        <th:block>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/catalog}">All Tennis Players</a>
+        </li>
+        </th:block>
 
         <th:block sec:authorize="!isAuthenticated()">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/players/all}">All Tennis Players</a>
-            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/users/register}">Register</a>
@@ -26,9 +29,7 @@
         </th:block>
 
         <th:block sec:authorize="isAuthenticated()">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/catalog}">My Team</a>
-            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/players/create}">Create Tennis Player</a>

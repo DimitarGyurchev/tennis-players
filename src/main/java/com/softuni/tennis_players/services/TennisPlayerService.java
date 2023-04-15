@@ -1,9 +1,12 @@
 package com.softuni.tennis_players.services;
 
+import com.softuni.tennis_players.domain.dtos.binding.TennisPlayerDTO;
 import com.softuni.tennis_players.domain.dtos.model.TennisPlayerModel;
 import com.softuni.tennis_players.domain.enitities.TennisPlayerEntity;
 import com.softuni.tennis_players.repositories.TennisPlayerRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +18,26 @@ import java.util.stream.Collectors;
 public class TennisPlayerService {
 
     private final TennisPlayerRepository tennisPlayerRepository;
-
     private final UserService userService;
 
-    public TennisPlayerService(TennisPlayerRepository playerRepository, UserService userService) {
+    private final ModelMapper modelMapper;
+
+    public TennisPlayerService(TennisPlayerRepository playerRepository, UserService userService, ModelMapper modelMapper) {
         this.tennisPlayerRepository = playerRepository;
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
-    public List<TennisPlayerEntity> getAllPlayers() {
-        return tennisPlayerRepository.findAll();
+
+    public TennisPlayerDTO toDto(TennisPlayerEntity entity) {
+        return modelMapper.map(entity, TennisPlayerDTO.class);
+    }
+
+    public List<TennisPlayerDTO> getAllPlayers() {
+        List<TennisPlayerEntity> playerEntities = tennisPlayerRepository.findAll();
+        return playerEntities.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
 
     public Optional<TennisPlayerEntity> getPlayerById(Long id) {
@@ -43,10 +56,9 @@ public class TennisPlayerService {
 
         return tennisPlayerRepository.save(tennisPlayerEntity);
     }
-    public List<TennisPlayerEntity> findAllPlayersByCurrentUser() {
-        User currentUser = userService.getCurrentUser();
-        return tennisPlayerRepository.findAllByCreatedBy(currentUser.getId().toString());
-    }
+
+
+
 
 
 

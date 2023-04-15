@@ -344,6 +344,23 @@ input[type="submit"]:hover {
     margin-bottom: 5px;
 }
 
+.details__delete__btn , .details__edit__btn{
+    color: white;
+    text-decoration: none;
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+    padding: 5px;
+    font-size: medium;
+    margin: 10px 0 ;
+}
+
+.details__delete__btn:hover , .details__edit__btn:hover{
+    background-color: #2E8B57;
+}
+
 
 
 

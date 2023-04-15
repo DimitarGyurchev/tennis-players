@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
@@ -34,6 +35,11 @@ public class DetailsController {
             // handle player not found error TODO !!!
             return "error";
         }
+    }
+    @PostMapping("/delete/{id}")
+    public String deletePlayer(@PathVariable("id") Long id) {
+        tennisPlayerService.deletePlayer(id);
+        return "redirect:/players"; //
     }
 
 }

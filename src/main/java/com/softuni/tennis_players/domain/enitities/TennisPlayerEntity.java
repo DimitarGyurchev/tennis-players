@@ -21,6 +21,15 @@ public class TennisPlayerEntity extends  BaseEntity{
     @Column(name = "image_url")
     private String imageUrl;
 
+    public UserEntity getCreatedBy() {
+        return createdBy;
+    }
+
+    public TennisPlayerEntity setCreatedBy(UserEntity createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
     @Column
     private String nationality;
 
@@ -31,7 +40,7 @@ public class TennisPlayerEntity extends  BaseEntity{
     private int ranking;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",nullable = false)
     private UserEntity createdBy;
 
 

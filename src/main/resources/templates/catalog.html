@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"> </head>
-<body class="catalog__body">
+<body class="catalog__body" th:with="currentUser=${#authentication.principal}">
 <div>
     <nav th:replace="~{fragments/navigation}"></nav>
 </div>
@@ -22,5 +22,4 @@
     <footer th:replace="~{fragments/footer}"></footer>
 </div>
 </body>
-
 </html>

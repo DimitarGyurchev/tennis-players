@@ -20,6 +20,7 @@ public class UserEntity extends BaseEntity {
     @Column(name="last_name")
     private String lastName;
 
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "users_roles",
@@ -27,6 +28,18 @@ public class UserEntity extends BaseEntity {
             inverseJoinColumns = { @JoinColumn(name = "role_id") }
     )
     private List<UserRoleEntity> roles;
+
+    @OneToMany(mappedBy = "createdBy")
+    private List<TennisPlayerEntity> tennisPlayers;
+
+    public List<TennisPlayerEntity> getTennisPlayers() {
+        return tennisPlayers;
+    }
+
+    public UserEntity setTennisPlayers(List<TennisPlayerEntity> tennisPlayers) {
+        this.tennisPlayers = tennisPlayers;
+        return this;
+    }
 
     public String getEmail() {
         return email;
