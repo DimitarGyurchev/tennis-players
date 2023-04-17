@@ -20,60 +20,60 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/players")
 public class DetailsController {
-
-    private final TennisPlayerService tennisPlayerService;
-    private final UserService userService;
-
-    @Autowired
-    public DetailsController(TennisPlayerService tennisPlayerService, UserService userService) {
-        this.tennisPlayerService = tennisPlayerService;
-        this.userService = userService;
-    }
-
-    @GetMapping("/{id}")
-    public String playerDetails(@PathVariable("id") long id, Model model) {
-        Optional<TennisPlayerEntity> optionalPlayer = tennisPlayerService.getPlayerById(id);
-        if (optionalPlayer.isPresent()) {
-            TennisPlayerEntity player = optionalPlayer.get();
-            model.addAttribute("player", player);
-            return "details";
-        } else {
-            // handle player not found error TODO !!!
-            return "error";
-        }
-    }
-
-    @GetMapping("/details/{id}")
-    public String getPlayerDetails(@PathVariable("id") Long id, Model model) {
-        Optional<TennisPlayerEntity> optionalPlayer = tennisPlayerService.getPlayerById(id);
-        if (optionalPlayer.isPresent()) {
-            TennisPlayerEntity player = optionalPlayer.get();
-            model.addAttribute("player", player);
-        } else {
-            // handle player not found error TODO !!!
-            return "error";
-        }
-
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String loggedInUsername = auth.getName();
-        Optional<UserEntity> optionalLoggedInUser = userService.findByUsername(loggedInUsername);
-
-        if (optionalLoggedInUser.isPresent()) {
-            UserEntity loggedInUserEntity = optionalLoggedInUser.get();
-            model.addAttribute("loggedInUser", loggedInUserEntity);
-        } else {
-            // handle user not found error TODO !!!
-            return "error";
-        }
-
-        return "details";
-    }
-
-
-    @PostMapping("/delete/{id}")
-    public String deletePlayer(@PathVariable("id") Long id) {
-        tennisPlayerService.deletePlayer(id);
-        return "redirect:/players";
-    }
-
 }
+//    private final TennisPlayerService tennisPlayerService;
+//    private final UserService userService;
+//
+//    @Autowired
+//    public DetailsController(TennisPlayerService tennisPlayerService, UserService userService) {
+//        this.tennisPlayerService = tennisPlayerService;
+//        this.userService = userService;
+//    }
+
+//    @GetMapping("/{id}")
+//    public String playerDetails(@PathVariable("id") long id, Model model) {
+//        Optional<TennisPlayerEntity> optionalPlayer = tennisPlayerService.getPlayerById(id);
+//        if (optionalPlayer.isPresent()) {
+//            TennisPlayerEntity player = optionalPlayer.get();
+//            model.addAttribute("player", player);
+//            return "details";
+//        } else {
+//             handle player not found error TODO !!!
+//            return "error";
+//        }
+//    }
+
+//    @GetMapping("/details/{id}")
+//    public String getPlayerDetails(@PathVariable("id") Long id, Model model) {
+//        Optional<TennisPlayerEntity> optionalPlayer = tennisPlayerService.getPlayerById(id);
+//        if (optionalPlayer.isPresent()) {
+//            TennisPlayerEntity player = optionalPlayer.get();
+//            model.addAttribute("player", player);
+//        } else {
+//            // handle player not found error TODO !!!
+//            return "error";
+//        }
+//
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String loggedInUsername = auth.getName();
+//        Optional<UserEntity> optionalLoggedInUser = userService.findByUsername(loggedInUsername);
+//
+//        if (optionalLoggedInUser.isPresent()) {
+//            UserEntity loggedInUserEntity = optionalLoggedInUser.get();
+//            model.addAttribute("loggedInUser", loggedInUserEntity);
+//        } else {
+//            // handle user not found error TODO !!!
+//            return "error";
+//        }
+//
+//        return "details";
+//    }
+
+//
+//    @PostMapping("/delete/{id}")
+//    public String deletePlayer(@PathVariable("id") Long id) {
+//        tennisPlayerService.deletePlayer(id);
+//        return "redirect:/players";
+//    }
+//
+//}

@@ -1,7 +1,6 @@
 package com.softuni.tennis_players.web;
 
 
-import com.softuni.tennis_players.domain.dtos.binding.TennisPlayerDTO;
 import com.softuni.tennis_players.domain.dtos.binding.UserDTO;
 import com.softuni.tennis_players.domain.dtos.model.TennisPlayerModel;
 import com.softuni.tennis_players.domain.enitities.TennisPlayerEntity;
@@ -28,13 +27,13 @@ public class CatalogController {
         this.userRepository = userRepository;
         this.tennisPlayerService = tennisPlayerService;
     }
-    @GetMapping("/catalog")
-    public String getCatalog(Model model) {
-        List<TennisPlayerDTO> players = tennisPlayerService.getAllPlayers();
-        model.addAttribute("players", players);
-        return "catalog";
-    }
-
+//    @GetMapping("/catalog")
+//    public String getCatalog(Model model) {
+////        List<TennisPlayerDTO> players = tennisPlayerService.getAllPlayers();
+////        model.addAttribute("players", players);
+////        return "catalog";
+////    }
+//
 
 
 }

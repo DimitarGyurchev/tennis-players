@@ -41,7 +41,7 @@ public class RegistrationController {
             return "redirect:/users/register";
         }
 
-        userService.registerUser(userRegisterForm);
+//        userService.registerUser(userRegisterForm);
 
         return "redirect:/users/login";
     }
