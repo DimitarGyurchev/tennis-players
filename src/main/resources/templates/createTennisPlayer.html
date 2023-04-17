@@ -1,51 +1,41 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/head}">
 </head>
 
 <body>
-<div>
-    <nav th:replace="~{fragments/navigation}"></nav>
-</div>
+    <div>
+        <nav th:replace="~{fragments/navigation}"></nav>
+    </div>
+
+    <div class="container__create__player"></div>
+    <form class=""
+          th:action="@{/createTennisPlayer}"
+          th:method="POST"
+          th:object="${addTennisPlayerDTO}">
+
+        <h3 class="create__title">Add a new Tennis Player</h3>
+        <div class="create__name">
+            <small class="invalid">Name length must be more than 3 characters</small>
+
+            <input class="create__input"
+            minlength="1"
+            name="firstName" required
+            th:errorclass="is-invalid"
+            th:field="*{firstName}"
+            type="text">
+        </div>
+
+    </form>
 
 
-<form action="#" th:action="@{/players/create}" th:object="${tennis_player}" method="post" class="container__create-player">
-    <h1 class="title__create">Create Tennis Player</h1>
-    <label class="create__label">First Name:</label>
-    <input type="text" class="create__input" th:field="*{firstName}" />
 
-    <label class="create__label">Last Name:</label>
-    <input type="text" class="create__input" th:field="*{lastName}" />
 
-    <label class="create__label">Age:</label>
-    <input type="number" class="create__input" th:field="*{age}" />
 
-    <label class="create__label">Image URL:</label>
-    <input type="text" class="create__input" th:field="*{imageUrl}" />
-
-    <label class="create__label">Nationality:</label>
-    <input type="text" class="create__input" th:field="*{nationality}" />
-
-    <label class="create__label">Ranking:</label>
-    <input type="number" class="create__input" th:field="*{ranking}" />
-
-    <label class="create__label">Player Style:</label>
-    <select class="create__select" th:field="*{playerStyle}">
-        <option value="AGGRESSIVE_BASELINER">Aggressive Baseliner</option>
-        <option value="SERVE_AND_VOLLEYER">Serve and Volleyer</option>
-        <option value="COUNTERPUNCHER">Counterpuncher</option>
-        <option value="ALL_COURT">All Court</option>
-        <option value="JUNK_BALLER">Junk Baller</option>
-        <option value="PUSHER">Pusher</option>
-    </select>
-
-    <input type="submit" class="create__button" value="Create" />
-</form>
-
-<div>
+    <div>
     <footer th:replace="~{fragments/footer}"></footer>
 </div>
 </body>
-
 </html>

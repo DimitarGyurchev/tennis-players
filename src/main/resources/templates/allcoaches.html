@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<section class="all__coaches" th:each="coach : ${coaches}" th:object="${coach}">
+    <div>
+        <h2 class="coaches__title"  th:text="*{name}" >Coach Name</h2>
+        <p class="coaches__year" th:text="*{yearOfBirth}" >Coach Birth Year</p>
+        <p class="coaches__nationality" th:text="*{nationality}">Coach Nationality</p>
+    </div>
+</section>
+
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>

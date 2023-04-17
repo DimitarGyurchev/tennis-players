@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navigation}"></nav>
+</div>
+
+<section class="all__players__section" th:each="player : ${players}" th:object="${player}">
+    <div>
+        <p th:text="'First Name: ' + *{firstName}">First Name</p>
+        <p th:text="'Last Name: ' + *{lastName}">Last Name</p>
+        <p th:text="'Sponsor: ' + *{sponsor}">Sponsor</p>
+        <p th:text="'Nationality: ' + *{nationality}">Nationality</p>
+        <p th:text="'Age: ' + *{age}">Age</p>
+        <p th:text="'Ranking: ' + *{ranking}">Ranking</p>
+        <a class="all__players__btn" th:href="@{/details/{id}(id=*{id})}">Comment</a>
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+            <form
+                    th:action="@{/details/{id}(id=*{id})}"
+                    th:method="DELETE">
+                <input class="all__players__delete" type="submit" value="Delete Player">
+            </form>
+        </th:block>
+    </div>
+</section>
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>

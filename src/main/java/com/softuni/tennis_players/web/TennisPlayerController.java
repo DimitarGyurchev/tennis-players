@@ -46,7 +46,7 @@ public class TennisPlayerController {
         return "createTennisplayer";
     }
 
-    @ModelAttribute("addPlayerDTO")
+    @ModelAttribute("addTennisPlayerDTO")
     public AddTennisPlayerDTO init(){
         return new AddTennisPlayerDTO();
     }
