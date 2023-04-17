@@ -22,38 +22,23 @@
     <div class="">
         <div class="">
 
-            <label th:for="firstName"
-                   class="">First Name</label>
+            <label th:for="username"
+                   class="">Username</label>
 
             <input type="text"
-                   th:field="*{firstName}"
-                   class="register__firstName"
-                   placeholder="First name"
+                   th:field="*{username}"
+                   class="register__username"
+                   placeholder="Username"
             />
 
-            <p th:if="${#fields.hasErrors('firstName')}"
-               class="register__firstName">
-                First name is required.
+            <p th:if="${#fields.hasErrors('username')}"
+               class="register__username">
+               Username is required.
             </p>
 
         </div>
 
-        <div class="">
 
-            <label th:for="lastName"
-                   class="">Last Name</label>
-
-            <input th:field="*{lastName}"
-                   class="register__lastName"
-                   placeholder="Last name"
-                   type="text"
-            />
-
-            <p th:if="${#fields.hasErrors('lastName')}"
-               class="register__lastName">
-                Last name is required.
-            </p>
-        </div>
     </div>
 
     <div class="">
@@ -61,7 +46,7 @@
 
             <label th:for="email"
                    class="">
-                Username
+               Email
             </label>
 
             <input th:field="*{email}"

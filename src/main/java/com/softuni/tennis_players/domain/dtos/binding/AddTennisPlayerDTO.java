@@ -1,31 +1,44 @@
 package com.softuni.tennis_players.domain.dtos.binding;
 
 import com.softuni.tennis_players.domain.enums.PlayerStyle;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
-public class TennisPlayerDTO {
-    private Long id;
+public class AddTennisPlayerDTO {
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+    @NotNull
     private String imageUrl;
+    @NotNull
     private String nationality;
+    @NotNull
+    @Positive
     private int age;
+    @NotNull
+    @Positive
     private int ranking;
+    @NotNull
     private PlayerStyle playerStyle;
 
-    public Long getId() {
-        return id;
+    public AddTennisPlayerDTO( String firstName, String lastName, String imageUrl, String nationality, int age, int ranking, PlayerStyle playerStyle) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.imageUrl = imageUrl;
+        this.nationality = nationality;
+        this.age = age;
+        this.ranking = ranking;
+        this.playerStyle = playerStyle;
     }
 
-    public TennisPlayerDTO setId(Long id) {
-        this.id = id;
-        return this;
-    }
+
 
     public String getFirstName() {
         return firstName;
     }
 
-    public TennisPlayerDTO setFirstName(String firstName) {
+    public AddTennisPlayerDTO setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -34,7 +47,7 @@ public class TennisPlayerDTO {
         return lastName;
     }
 
-    public TennisPlayerDTO setLastName(String lastName) {
+    public AddTennisPlayerDTO setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -43,7 +56,7 @@ public class TennisPlayerDTO {
         return imageUrl;
     }
 
-    public TennisPlayerDTO setImageUrl(String imageUrl) {
+    public AddTennisPlayerDTO setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }
@@ -52,7 +65,7 @@ public class TennisPlayerDTO {
         return nationality;
     }
 
-    public TennisPlayerDTO setNationality(String nationality) {
+    public AddTennisPlayerDTO setNationality(String nationality) {
         this.nationality = nationality;
         return this;
     }
@@ -61,7 +74,7 @@ public class TennisPlayerDTO {
         return age;
     }
 
-    public TennisPlayerDTO setAge(int age) {
+    public AddTennisPlayerDTO setAge(int age) {
         this.age = age;
         return this;
     }
@@ -70,7 +83,7 @@ public class TennisPlayerDTO {
         return ranking;
     }
 
-    public TennisPlayerDTO setRanking(int ranking) {
+    public AddTennisPlayerDTO setRanking(int ranking) {
         this.ranking = ranking;
         return this;
     }
@@ -79,7 +92,7 @@ public class TennisPlayerDTO {
         return playerStyle;
     }
 
-    public TennisPlayerDTO setPlayerStyle(PlayerStyle playerStyle) {
+    public AddTennisPlayerDTO setPlayerStyle(PlayerStyle playerStyle) {
         this.playerStyle = playerStyle;
         return this;
     }

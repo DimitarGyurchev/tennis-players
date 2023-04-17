@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @PasswordMatch(password = "password", confirmPassword = "confirmPassword")
-public class UserRegisterFormDto {
+public class RegistrationDTO {
     @NotBlank
     @Email
     private String email;
@@ -21,18 +21,35 @@ public class UserRegisterFormDto {
     private String confirmPassword;
 
     @NotNull
-    @Size(min = 2, max = 20)
-    private String firstName;
+    @Size(min = 4, max = 20)
+    private String username;
 
-    @NotNull
-    @Size(min = 2, max = 20)
-    private String lastName;
+    public RegistrationDTO() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public RegistrationDTO setUsername(String username) {
+        this.username = username;
+        return this;
+    }
 
     public String getEmail() {
         return email;
     }
 
-    public UserRegisterFormDto setEmail(String email) {
+    public String getUserName() {
+        return username;
+    }
+
+    public RegistrationDTO setUserName(String userName) {
+        this.username = userName;
+        return this;
+    }
+
+    public RegistrationDTO setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -41,7 +58,7 @@ public class UserRegisterFormDto {
         return password;
     }
 
-    public UserRegisterFormDto setPassword(String password) {
+    public RegistrationDTO setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -50,26 +67,18 @@ public class UserRegisterFormDto {
         return confirmPassword;
     }
 
-    public UserRegisterFormDto setConfirmPassword(String confirmPassword) {
+    public RegistrationDTO setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
         return this;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public UserRegisterFormDto setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public UserRegisterFormDto setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
+    @Override
+    public String toString() {
+        return "RegistrationDTO{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

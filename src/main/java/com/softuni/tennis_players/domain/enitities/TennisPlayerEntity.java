@@ -21,14 +21,6 @@ public class TennisPlayerEntity extends  BaseEntity{
     @Column(name = "image_url")
     private String imageUrl;
 
-    public UserEntity getCreatedBy() {
-        return createdBy;
-    }
-
-    public TennisPlayerEntity setCreatedBy(UserEntity createdBy) {
-        this.createdBy = createdBy;
-        return this;
-    }
 
     @Column
     private String nationality;
@@ -39,10 +31,32 @@ public class TennisPlayerEntity extends  BaseEntity{
     @Column
     private int ranking;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id",nullable = false)
-    private UserEntity createdBy;
+    @ManyToOne (fetch = FetchType.EAGER)
+    private SponsorEntity sponsor;
 
+    @ManyToOne (fetch = FetchType.EAGER)
+    private CoachEntity coach;
+
+    public TennisPlayerEntity() {
+    }
+
+    public SponsorEntity getSponsor() {
+        return sponsor;
+    }
+
+    public TennisPlayerEntity setSponsor(SponsorEntity sponsor) {
+        this.sponsor = sponsor;
+        return this;
+    }
+
+    public CoachEntity getCoach() {
+        return coach;
+    }
+
+    public TennisPlayerEntity setCoach(CoachEntity coach) {
+        this.coach = coach;
+        return this;
+    }
 
     public int getRanking() {
         return ranking;
@@ -53,8 +67,7 @@ public class TennisPlayerEntity extends  BaseEntity{
         return this;
     }
 
-    public TennisPlayerEntity() {
-    }
+
 
     public String getFirstName() {
         return firstName;

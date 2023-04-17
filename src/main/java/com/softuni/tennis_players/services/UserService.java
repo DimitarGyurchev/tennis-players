@@ -1,38 +1,33 @@
 package com.softuni.tennis_players.services;
 
-import com.softuni.tennis_players.domain.dtos.binding.UserRegisterFormDto;
 import com.softuni.tennis_players.domain.enitities.UserEntity;
 import com.softuni.tennis_players.repositories.UserRepository;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    @Autowired
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
-    public void registerUser(UserRegisterFormDto registrationDTO) {
-
-        UserEntity userEntity = new UserEntity().
-                setFirstName(registrationDTO.getFirstName()).
-                setLastName(registrationDTO.getLastName()).
-                setEmail(registrationDTO.getEmail()).
-                setPassword(passwordEncoder.encode(registrationDTO.getPassword()));
-
-        userRepository.save(userEntity);
+    public UserEntity getUser(String username) {
+        return userRepository.findUserEntityByUsername(username)
+                .orElseThrow(()->new UsernameNotFoundException(username + " was not found!"));
+    }
+    public List<UserEntity> getUsers(){
+        return userRepository.findAll();
     }
 
-
-
+    public UserEntity getUserById(Long id){
+        return userRepository.findUserEntityById(id)
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }

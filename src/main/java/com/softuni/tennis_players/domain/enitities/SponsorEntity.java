@@ -1,22 +1,25 @@
 package com.softuni.tennis_players.domain.enitities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.softuni.tennis_players.domain.enums.SponsorEnum;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="sponsors")
 public class SponsorEntity extends BaseEntity {
 
-    @Column(unique = true,nullable = false)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sponsor_name")
+    private SponsorEnum sponsorName;
 
-    public String getName() {
-        return name;
+    public SponsorEntity() {
     }
 
-    public SponsorEntity setName(String name) {
-        this.name = name;
+    public SponsorEnum getSponsorName() {
+        return sponsorName;
+    }
+
+    public SponsorEntity setSponsorName(SponsorEnum sponsorName) {
+        this.sponsorName = sponsorName;
         return this;
     }
 }

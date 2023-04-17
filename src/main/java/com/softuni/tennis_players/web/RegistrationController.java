@@ -1,6 +1,6 @@
 package com.softuni.tennis_players.web;
 
-import com.softuni.tennis_players.domain.dtos.binding.UserRegisterFormDto;
+import com.softuni.tennis_players.domain.dtos.binding.RegistrationDTO;
 import com.softuni.tennis_players.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public String postRegister(
-            @Valid UserRegisterFormDto userRegisterForm,
+            @Valid RegistrationDTO userRegisterForm,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes) {
 
@@ -47,8 +47,8 @@ public class RegistrationController {
     }
 
     @ModelAttribute(name = "userRegisterForm")
-    public UserRegisterFormDto initUserRegisterFormDto() {
-        return new UserRegisterFormDto();
+    public RegistrationDTO initUserRegisterFormDto() {
+        return new RegistrationDTO();
     }
 
 }
