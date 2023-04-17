@@ -1,8 +1,9 @@
 package com.softuni.tennis_players.web;
 
 import com.softuni.tennis_players.domain.dtos.binding.RegistrationDTO;
-import com.softuni.tennis_players.services.UserService;
+import com.softuni.tennis_players.services.RegistrationService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,43 +13,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/")
 public class RegistrationController {
 
-    private static final String BINDING_RESULT_PATH = "org.springframework.validation.BindingResult.";
-    private final UserService userService;
+    private final RegistrationService registrationService;
 
-    public RegistrationController(UserService userService) {
-        this.userService = userService;
+    @Autowired
+    public RegistrationController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
     }
 
     @GetMapping("/register")
-    public String getRegister() {
+    public String register(){
         return "register";
     }
 
-    @PostMapping("/register")
-    public String postRegister(
-            @Valid RegistrationDTO userRegisterForm,
-            BindingResult bindingResult,
-            RedirectAttributes redirectAttributes) {
-
-        if (bindingResult.hasErrors()) {
-            redirectAttributes
-                    .addFlashAttribute("userRegisterForm", userRegisterForm)
-                    .addFlashAttribute(BINDING_RESULT_PATH + "userRegisterForm", bindingResult);
-
-            return "redirect:/users/register";
-        }
-
-//        userService.registerUser(userRegisterForm);
-
-        return "redirect:/users/login";
-    }
-
-    @ModelAttribute(name = "userRegisterForm")
-    public RegistrationDTO initUserRegisterFormDto() {
+    @ModelAttribute("registrationDTO")
+    public RegistrationDTO init(){
         return new RegistrationDTO();
     }
 
+    @PostMapping("/register")
+    public String register(@Valid RegistrationDTO registrationDTO,
+                           BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes){
+        System.out.println(registrationDTO.toString());
+        if(bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("registrationDTO", registrationDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registrationDTO", bindingResult);
+            return "redirect:/register";
+        }
+        this.registrationService.register(registrationDTO);
+        return "redirect:/login";
+    }
 }

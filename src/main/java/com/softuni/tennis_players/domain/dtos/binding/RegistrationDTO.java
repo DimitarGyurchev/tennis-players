@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 
 @PasswordMatch(password = "password", confirmPassword = "confirmPassword")
 public class RegistrationDTO {
+    // toDO fullNAME !!!
     @NotBlank
     @Email
     private String email;

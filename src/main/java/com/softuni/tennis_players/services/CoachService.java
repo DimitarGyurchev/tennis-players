@@ -3,6 +3,7 @@ package com.softuni.tennis_players.services;
 import com.softuni.tennis_players.domain.dtos.binding.AddCoachDTO;
 import com.softuni.tennis_players.domain.enitities.CoachEntity;
 import com.softuni.tennis_players.repositories.CoachRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class CoachService {
         return coachRepository.findAll();
     }
 
-    public void addCoach(AddCoachDTO addCoachDTO){
+    public void addCoach(com.softuni.tennis_players.domain.dtos.model.@Valid AddCoachDTO addCoachDTO){
         CoachEntity coach = new CoachEntity()
                 .setName(addCoachDTO.getName())
                 .setYearOfBirth(addCoachDTO.getYearOfBirth())

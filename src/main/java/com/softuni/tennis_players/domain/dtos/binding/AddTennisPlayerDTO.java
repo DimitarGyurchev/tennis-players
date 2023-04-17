@@ -32,6 +32,9 @@ public class AddTennisPlayerDTO {
         this.playerStyle = playerStyle;
     }
 
+    public AddTennisPlayerDTO() {
+
+    }
 
 
     public String getFirstName() {
