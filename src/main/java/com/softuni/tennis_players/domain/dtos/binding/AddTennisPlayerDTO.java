@@ -10,8 +10,7 @@ public class AddTennisPlayerDTO {
     private String firstName;
     @NotNull
     private String lastName;
-    @NotNull
-    private String imageUrl;
+
     @NotNull
     private String nationality;
     @NotNull
@@ -44,10 +43,9 @@ public class AddTennisPlayerDTO {
         return this;
     }
 
-    public AddTennisPlayerDTO(String firstName, String lastName, String imageUrl, String nationality, int age, int ranking, CoachEntity coach, SponsorEntity sponsor) {
+    public AddTennisPlayerDTO(String firstName, String lastName, String nationality, int age, int ranking, CoachEntity coach, SponsorEntity sponsor) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.imageUrl = imageUrl;
         this.nationality = nationality;
         this.age = age;
         this.ranking = ranking;
@@ -80,14 +78,6 @@ public class AddTennisPlayerDTO {
         return this;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public AddTennisPlayerDTO setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        return this;
-    }
 
     public String getNationality() {
         return nationality;

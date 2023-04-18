@@ -13,13 +13,29 @@ public class TennisPlayerViewDTO {
     private int age;
     private int ranking;
     private String coach;
-    private String imageUrl;
 
+    public String getSponsor() {
+        return sponsor;
+    }
 
+    public TennisPlayerViewDTO setSponsor(String sponsor) {
+        this.sponsor = sponsor;
+        return this;
+    }
+
+    public String getCoach() {
+        return coach;
+    }
+
+    public TennisPlayerViewDTO setCoach(String coach) {
+        this.coach = coach;
+        return this;
+    }
 
     public TennisPlayerViewDTO() {
 
     }
+
 
 
     public Long getId() {
@@ -49,14 +65,7 @@ public class TennisPlayerViewDTO {
         return this;
     }
 
-    public String getSponsor() {
-        return sponsor;
-    }
 
-    public TennisPlayerViewDTO setSponsor(String sponsor) {
-        this.sponsor = sponsor;
-        return this;
-    }
 
     public String getNationality() {
         return nationality;
@@ -85,21 +94,7 @@ public class TennisPlayerViewDTO {
         return this;
     }
 
-    public String getCoach() {
-        return coach;
-    }
 
-    public TennisPlayerViewDTO setCoach(String coach) {
-        this.coach = coach;
-        return this;
-    }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
 
-    public TennisPlayerViewDTO setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        return this;
-    }
 }

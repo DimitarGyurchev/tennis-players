@@ -3,6 +3,15 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/head}">
+    <script>
+        function validateInput(inputElement) {
+            if (!inputElement.checkValidity()) {
+                inputElement.classList.add('is-invalid');
+            } else {
+                inputElement.classList.remove('is-invalid');
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -18,17 +27,20 @@
 
         <h3 class="create__title">Add a new Tennis Player</h3>
         <div class="create__name">
+            <h3>First Name</h3>
             <small class="invalid">Name length must be more than 3 characters</small>
 
             <input class="create__input"
-            minlength="3"
-            name="firstName" required
-            th:errorclass="is-invalid"
-            th:field="*{firstName}"
-            type="text">
+                   minlength="3"
+                   name="firstName" required
+                   th:errorclass="is-invalid"
+                   th:field="*{firstName}"
+                   type="text">
         </div>
 
+
         <div class="create__name">
+            <h3>Last Name</h3>
             <small class="invalid">Name length must be more than 3 characters</small>
 
             <input class="create__input"
@@ -40,6 +52,7 @@
         </div>
 
         <div class="create__name">
+            <h3>Nationality</h3>
             <small class="invalid">Nationality length must be more than 3 characters</small>
 
             <input class="create__input"
@@ -51,6 +64,7 @@
         </div>
 
         <div class="create__name">
+            <h3>Age</h3>
             <small class="invalid">Age must be positive number</small>
 
             <input class="create__input"
@@ -61,6 +75,7 @@
                    type="number">
         </div>
         <div class="create__name">
+            <h3>Ranking</h3>
             <small class="invalid">Ranking must be positive number</small>
 
             <input class="create__input"
@@ -70,16 +85,7 @@
                    th:field="*{ranking}"
                    type="number">
         </div>
-        <div class="create__name">
-            <small class="invalid">ImageUrl length must be more than 3 characters</small>
 
-            <input class="create__input"
-                   minlength="3"
-                   name="imageUrl" required
-                   th:errorclass="is-invalid"
-                   th:field="*{imageUrl}"
-                   type="text">
-        </div>
 
         <div>
             <div class="create__coach__container">
@@ -90,9 +96,7 @@
                     </option>
                 </select>
             </div>
-            <p class="coach_para">Coach Does Not Exist ?<a class="coach__tag"
-                                                                                   th:href="@{/createCoach}"><u>Add it
-                here</u></a></p>
+            <p class="coach_para">Coach Does Not Exist ?<a class="coach__tag" th:href="@{/createCoach}"><u>Add it here</u></a></p>
         </div>
 
         <div>

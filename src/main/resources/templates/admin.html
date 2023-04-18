@@ -7,15 +7,18 @@
     <nav th:replace="~{fragments/navigation}"></nav>
 </div>
 <body>
-<div class="wrapper">
+<div class="container__admin">
 
 
     <section class="road" th:each="user : ${users}" th:object="${user}">
         <div>
-            <h2 th:text="*{username}">Username</h2>
+            <h3>Username:</h3>
+            <h1 th:text="*{username}"></h1>
+            <h3>Email:</h3>
             <p th:text="*{email}">Mail</p>
-            <p th:text="*{fullName}">Full Name</p>
-            <p th:text="*{roles}">Roles</p>
+            <h3>Full name:</h3>
+            <p th:text="*{fullName}">Full Name : th:text="*{fullName} </p>
+<!--            <p th:text="*{roles}">Roles</p>-->
             <div><p></p></div>
             <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                 <form

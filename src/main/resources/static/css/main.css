@@ -405,7 +405,7 @@ footer {
     color:white;
 }
 
-.profile__container,.create__coach__container,.all__coaches,.container__create__player{
+.profile__container,.create__coach__container,.all__coaches,.container__create__player,.all__players__section,.container__admin{
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
@@ -414,3 +414,16 @@ footer {
     color:white;
 }
 
+.invalid {
+    display: none;
+}
+
+.input.is-invalid + .invalid {
+    display: block;
+}
+
+.coach__tag{
+    color: white;
+    text-decoration: none;
+    margin-left: 3px;
+}

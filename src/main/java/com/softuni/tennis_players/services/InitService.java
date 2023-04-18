@@ -1,7 +1,7 @@
 package com.softuni.tennis_players.services;
 
-import com.softuni.tennis_players.domain.enitities.UserEntity;
-import com.softuni.tennis_players.domain.enitities.UserRoleEntity;
+import com.softuni.tennis_players.domain.enitities.*;
+import com.softuni.tennis_players.domain.enums.SponsorEnum;
 import com.softuni.tennis_players.domain.enums.UserRoleEnum;
 import com.softuni.tennis_players.repositories.*;
 import jakarta.annotation.PostConstruct;
@@ -31,6 +31,7 @@ public class InitService {
     public void init(){
         initRoles();
         initUsers();
+        initContent();
     }
     private void initRoles() {
         if (userRoleRepository.count() == 0) {
@@ -64,6 +65,70 @@ public class InitService {
                 .setFullName("Mimi Mimova")
                 .setRoles(userRoleRepository.findUserRoleByRole(UserRoleEnum.USER));
         userRepository.save(user);
+    }
+    private void initContent(){
+        var adidas = new SponsorEntity()
+                .setSponsorName(SponsorEnum.ADIDAS);
+        var nike = new SponsorEntity()
+                .setSponsorName(SponsorEnum.NIKE);
+        var lacoste = new SponsorEntity()
+                .setSponsorName(SponsorEnum.LACOSTE);
+        var lotto = new SponsorEntity()
+                .setSponsorName(SponsorEnum.LOTTO);
+        var armani = new SponsorEntity()
+                .setSponsorName(SponsorEnum.ARMANI);
+
+        if(sponsorRepository.count()==0){
+            sponsorRepository.save(adidas);
+            sponsorRepository.save(nike);
+            sponsorRepository.save(lacoste);
+            sponsorRepository.save(lotto);
+            sponsorRepository.save(armani);
+        }
+        if(tennisPlayerRepository.count()==0){
+            var coach = new CoachEntity()
+                    .setName("Ivan Lubicic")
+                    .setNationality("Croatian")
+                    .setYearOfBirth(1979);
+            var coach1 = new CoachEntity()
+                    .setName("Daniel Vallverdú")
+                    .setNationality("Venezuelan")
+                    .setYearOfBirth(1986);
+            var coach2 = new CoachEntity()
+                    .setName("Toni Nadal")
+                    .setNationality("Spanish")
+                    .setYearOfBirth(1961);
+             coachRepository.save(coach);
+             coachRepository.save(coach1);
+             coachRepository.save(coach2);
+             var player = new TennisPlayerEntity()
+                     .setFirstName("Roger")
+                     .setLastName("Federer")
+                     .setAge(41)
+                     .setSponsor(adidas)
+                     .setCoach(coach)
+                     .setRanking(1)
+                     .setNationality("Swiss");
+            var player2 = new TennisPlayerEntity()
+                    .setFirstName("Rafael")
+                    .setLastName("Nadal")
+                    .setAge(36)
+                    .setSponsor(nike)
+                    .setCoach(coach1)
+                    .setRanking(2)
+                    .setNationality("Spanish");
+            var player3 = new TennisPlayerEntity()
+                    .setFirstName("Grigor")
+                    .setLastName("Dimitrov")
+                    .setAge(31)
+                    .setSponsor(armani)
+                    .setCoach(coach2)
+                    .setRanking(3)
+                    .setNationality("Bulgarian");
+            tennisPlayerRepository.save(player);
+            tennisPlayerRepository.save(player2);
+            tennisPlayerRepository.save(player3);
+        }
     }
 
 }

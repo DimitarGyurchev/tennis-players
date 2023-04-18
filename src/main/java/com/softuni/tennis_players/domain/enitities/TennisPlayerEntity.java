@@ -13,11 +13,6 @@ public class TennisPlayerEntity extends  BaseEntity{
     private String lastName;
 
 
-
-    @Column(name = "image_url")
-    private String imageUrl;
-
-
     @Column
     private String nationality;
 
@@ -83,16 +78,6 @@ public class TennisPlayerEntity extends  BaseEntity{
         return this;
     }
 
-
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public TennisPlayerEntity setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        return this;
-    }
 
     public int getAge() {
         return age;

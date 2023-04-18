@@ -26,9 +26,10 @@ public class TennisPlayerService {
         TennisPlayerEntity player = new TennisPlayerEntity()
                 .setFirstName(addTennisPlayerDTO.getFirstName())
                 .setLastName(addTennisPlayerDTO.getLastName())
-                .setImageUrl(addTennisPlayerDTO.getImageUrl())
                 .setNationality(addTennisPlayerDTO.getNationality())
+                .setSponsor(addTennisPlayerDTO.getSponsor())
                 .setAge(addTennisPlayerDTO.getAge())
+                .setCoach(addTennisPlayerDTO.getCoach())
                 .setRanking(addTennisPlayerDTO.getRanking());
         this.tennisPlayerRepository.save(player);
     }
@@ -48,7 +49,7 @@ public class TennisPlayerService {
 
     private TennisPlayerViewDTO map(TennisPlayerEntity tennisPlayerEntity){
         return new TennisPlayerViewDTO()
-                .setId(tennisPlayerEntity.getId())
+
                 .setFirstName(tennisPlayerEntity.getFirstName())
                 .setLastName(tennisPlayerEntity.getLastName())
                 .setCoach(tennisPlayerEntity.getCoach().getName())
