@@ -29,8 +29,7 @@ public class TennisPlayerService {
                 .setImageUrl(addTennisPlayerDTO.getImageUrl())
                 .setNationality(addTennisPlayerDTO.getNationality())
                 .setAge(addTennisPlayerDTO.getAge())
-                .setRanking(addTennisPlayerDTO.getRanking())
-                .setPlayerStyle(addTennisPlayerDTO.getPlayerStyle());
+                .setRanking(addTennisPlayerDTO.getRanking());
         this.tennisPlayerRepository.save(player);
     }
     public TennisPlayerViewDTO getPlayer(Long id){

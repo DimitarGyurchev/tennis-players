@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{/fragments/head}"></head>
+<body>
+
+<div>
+    <nav th:replace="~{/fragments/navigation}"></nav>
+</div>
+
+<main class="p-5 align-content-center bg-blur my-register-div">
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+                <div class="profile-card p-3 py-4" th:object="${user}">
+
+                    <div class="profile__container">
+
+
+                        <div>
+                            <h3>Name:</h3>
+                            <h5 class="mt-4 mb-0" th:text="*{fullName}"></h5>
+                        </div>
+
+                        <div>
+                            <p></p>
+                        </div>
+
+                        <div>
+                            <h3>Username:</h3>
+                            <h5 class="mt-2 mb-0" th:text="*{username}">Username</h5>
+                        </div>
+
+                        <div>
+                            <p></p>
+                        </div>
+
+                        <div>
+                            <h3>E-Mail:</h3>
+                            <h5 class="mt-2 mb-0" th:text="*{email}">Mail</h5>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>

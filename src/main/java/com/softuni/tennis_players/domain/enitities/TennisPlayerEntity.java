@@ -1,8 +1,6 @@
 package com.softuni.tennis_players.domain.enitities;
 
-import com.softuni.tennis_players.domain.enums.PlayerStyle;
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
 
 @Entity
 @Table(name="tennis_players")
@@ -14,9 +12,7 @@ public class TennisPlayerEntity extends  BaseEntity{
     @Column(name="last_name")
     private String lastName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "player_style")
-    private PlayerStyle playerStyle;
+
 
     @Column(name = "image_url")
     private String imageUrl;
@@ -87,14 +83,7 @@ public class TennisPlayerEntity extends  BaseEntity{
         return this;
     }
 
-    public PlayerStyle getPlayerStyle() {
-        return playerStyle;
-    }
 
-    public TennisPlayerEntity setPlayerStyle(PlayerStyle playerStyle) {
-        this.playerStyle = playerStyle;
-        return this;
-    }
 
     public String getImageUrl() {
         return imageUrl;

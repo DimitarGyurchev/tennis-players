@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <input id="playerId" name="coachId" th:value="${coach.id}" type="hidden">
+
+    <div class="details-main" th:object="${player}">
+        <section class="route-info text-center">
+            <h4 id="name" th:text="*{name}"></h4>
+            <p>Coach name: <span id="coach" th:text="${coach}"></span></p>
+        </section>
+    </div>
+</div>
+    <footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>

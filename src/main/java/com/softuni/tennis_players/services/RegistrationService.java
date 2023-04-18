@@ -41,6 +41,7 @@ public class RegistrationService {
                 setUsername(registrationDTO.getUsername()).
                 setEmail(registrationDTO.getEmail()).
                 setPassword(passwordEncoder.encode(registrationDTO.getPassword())).
+                setFullName(registrationDTO.getFullName()).
                 setRoles(userRoleRepository.findUserRoleByRole(UserRoleEnum.USER));
         this.userRepository.save(user);
     }

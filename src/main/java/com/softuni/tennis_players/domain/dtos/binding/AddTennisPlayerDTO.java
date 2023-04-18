@@ -1,6 +1,7 @@
 package com.softuni.tennis_players.domain.dtos.binding;
 
-import com.softuni.tennis_players.domain.enums.PlayerStyle;
+import com.softuni.tennis_players.domain.enitities.CoachEntity;
+import com.softuni.tennis_players.domain.enitities.SponsorEntity;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -20,16 +21,38 @@ public class AddTennisPlayerDTO {
     @Positive
     private int ranking;
     @NotNull
-    private PlayerStyle playerStyle;
+    private CoachEntity coach;
 
-    public AddTennisPlayerDTO( String firstName, String lastName, String imageUrl, String nationality, int age, int ranking, PlayerStyle playerStyle) {
+    @NotNull
+    private SponsorEntity sponsor;
+
+    public CoachEntity getCoach() {
+        return coach;
+    }
+
+    public AddTennisPlayerDTO setCoach(CoachEntity coach) {
+        this.coach = coach;
+        return this;
+    }
+
+    public SponsorEntity getSponsor() {
+        return sponsor;
+    }
+
+    public AddTennisPlayerDTO setSponsor(SponsorEntity sponsor) {
+        this.sponsor = sponsor;
+        return this;
+    }
+
+    public AddTennisPlayerDTO(String firstName, String lastName, String imageUrl, String nationality, int age, int ranking, CoachEntity coach, SponsorEntity sponsor) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.imageUrl = imageUrl;
         this.nationality = nationality;
         this.age = age;
         this.ranking = ranking;
-        this.playerStyle = playerStyle;
+        this.coach = coach;
+        this.sponsor = sponsor;
     }
 
     public AddTennisPlayerDTO() {
@@ -93,12 +116,6 @@ public class AddTennisPlayerDTO {
         return this;
     }
 
-    public PlayerStyle getPlayerStyle() {
-        return playerStyle;
-    }
 
-    public AddTennisPlayerDTO setPlayerStyle(PlayerStyle playerStyle) {
-        this.playerStyle = playerStyle;
-        return this;
-    }
+
 }

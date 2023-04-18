@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+
+      xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{fragments/head}">
 </head>
@@ -14,7 +16,7 @@
     <h2 class="title__login">Login</h2>
 
     <form th:method="POST"
-          th:action="@{/users/login}"
+          th:action="@{/login}"
           class="">
 
         <div class="username__login">
@@ -37,7 +39,7 @@
         <div class="password__login">
             <label for="password" class="">Password</label>
             <input value="password" id="password" name="password" type="password" min="2"
-                   max="20"  class=""
+                   max="20"  class=""   th:value="${password}"
                    />
 
         </div>

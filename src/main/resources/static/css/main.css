@@ -136,7 +136,7 @@ input[type="submit"]:hover {
     background-color: #333;
 }
 
-.form__register h2 {
+.form__register h2 ,.create__coach__title,.create__title{
     margin-bottom: 10px;
     color: white;
     text-align: center;
@@ -200,7 +200,7 @@ input[type="submit"]:hover {
 }
 
 
-.create__input , .create__select {
+.create__input , .create__select ,.coach__input{
     display: block;
     width: 95%;
     padding: 10px 10px;
@@ -213,7 +213,7 @@ input[type="submit"]:hover {
     width: 100%;
 }
 
-.create__button {
+.create__button,.coach__btn {
     background-color: green;
     color: white;
     padding: 10px;
@@ -223,7 +223,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.create__button:hover {
+.create__button:hover,.coach__btn:hover {
     background-color: #2E8B57;
 }
 
@@ -376,6 +376,41 @@ footer {
     padding: 10px 0;
 }
 
+.btn__main{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn__main:hover {
+    background-color: #2E8B57;
+}
 
+.all__players__link , .all__coaches__link{
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    text-decoration: none;
+}
 
+.register__para, .register__link {
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+}
+.welcome{
+    color:white;
+}
+
+.profile__container,.create__coach__container,.all__coaches,.container__create__player{
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color:white;
+}
 

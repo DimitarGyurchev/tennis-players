@@ -8,10 +8,12 @@ import jakarta.validation.constraints.Size;
 
 @PasswordMatch(password = "password", confirmPassword = "confirmPassword")
 public class RegistrationDTO {
-    // toDO fullNAME !!!
     @NotBlank
     @Email
     private String email;
+    @NotBlank
+    @Size(min = 5, max = 20)
+    private String fullName;
 
     @NotNull
     @Size(min = 5, max = 20)
@@ -26,6 +28,15 @@ public class RegistrationDTO {
     private String username;
 
     public RegistrationDTO() {
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public RegistrationDTO setFullName(String fullName) {
+        this.fullName = fullName;
+        return this;
     }
 
     public String getUsername() {
@@ -80,6 +91,7 @@ public class RegistrationDTO {
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
                 ", username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
                 '}';
     }
 }

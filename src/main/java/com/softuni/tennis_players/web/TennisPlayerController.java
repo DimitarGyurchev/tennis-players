@@ -43,7 +43,7 @@ public class TennisPlayerController {
         model.addAttribute("coaches", coaches);
         List<SponsorEntity> sponsors = sponsorService.getAllSponsors();
         model.addAttribute("sponsors",sponsors);
-        return "createTennisplayer";
+        return "createTennisPlayer";
     }
 
     @ModelAttribute("addTennisPlayerDTO")

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+<div id="root" class="error__container">
+    <section id="error-type">
+        <h1 class="error__title"> Something went wrong, please go back to Home</h1>
+    </section>
+    <div class="error__button">
+        <a th:href="@{/}" class="button__home">Home</a>
+    </div>
+</div>
+
+
+<footer th:replace="~{fragments/footer}"></footer>
+</div>
+</body>
+</html>

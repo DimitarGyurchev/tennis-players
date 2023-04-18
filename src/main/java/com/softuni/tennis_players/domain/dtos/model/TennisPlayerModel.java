@@ -1,7 +1,5 @@
 package com.softuni.tennis_players.domain.dtos.model;
 
-import com.softuni.tennis_players.domain.enums.PlayerStyle;
-
 public class TennisPlayerModel {
 
     private Long id;
@@ -18,7 +16,6 @@ public class TennisPlayerModel {
 
     private int ranking;
 
-    private PlayerStyle playerStyle;
 
     public Long getId() {
         return id;
@@ -83,12 +80,6 @@ public class TennisPlayerModel {
         return this;
     }
 
-    public PlayerStyle getPlayerStyle() {
-        return playerStyle;
-    }
 
-    public TennisPlayerModel setPlayerStyle(PlayerStyle playerStyle) {
-        this.playerStyle = playerStyle;
-        return this;
-    }
+
 }

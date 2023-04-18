@@ -11,8 +11,27 @@
 <div class="home__container">
     <h1 class="title__home">Welcome to My Tennis App</h1>
 
-    <p class="description__home">This is the home page of the app. Here you can view your tennis team's stats, create new players, and manage your account.</p>
+    <p class="description__home">This is the home page of the app. Here you can create new players, create a coach and manage your account. You can see all tennis players and all coaches!</p>
+    <section class="boxes">
+        <a class="all__players__link" th:href="@{/alltennisplayers}">
+            <div class="box">
+
+                <h3>All Tennis Players</h3>
+
+            </div>
+        </a>
+        <a class="all__coaches__link" th:href="@{/allcoaches}">
+            <div class="box">
+
+                <h3>All Coaches</h3>
+
+            </div>
+        </a>
+
+    </section>
 </div>
+
+
 
 
 

@@ -28,7 +28,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
                 userRepository.
                         findUserEntityByUsername(username).
                         map(this::map).
-                        orElseThrow(() -> new UsernameNotFoundException("UserEntity with name " + username + " not found!"));
+                        orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
     }
 
     private UserDetails map(UserEntity userEntity) {
