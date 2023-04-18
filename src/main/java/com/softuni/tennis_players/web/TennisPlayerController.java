@@ -77,9 +77,9 @@ public class TennisPlayerController {
         model.addAttribute("player",player);
         return "tennisplayer-details";
     }
-    @DeleteMapping("details/{id}")
+    @DeleteMapping("/alltennisplayers/{id}")
     public String deletePlayer(@PathVariable("id") Long playerId){
-        tennisPlayerRepository.deleteById(playerId);
+        tennisPlayerService.deletePlayerById(playerId);
         return "redirect:/alltennisplayers";
     }
 }

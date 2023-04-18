@@ -33,7 +33,7 @@ public class InitService {
         initUsers();
         initContent();
     }
-    private void initRoles() {
+    void initRoles() {
         if (userRoleRepository.count() == 0) {
             var admin = new UserRoleEntity().setRole(UserRoleEnum.ADMIN);
             var user = new UserRoleEntity().setRole(UserRoleEnum.USER);
@@ -41,14 +41,14 @@ public class InitService {
             userRoleRepository.save(user);
         }
     }
-    private void initUsers() {
+    public void initUsers() {
         if (userRepository.count() == 0) {
             initAdmin();
             initUser();
         }
     }
 
-    private void initAdmin() {
+    void initAdmin() {
         var admin = new UserEntity()
                 .setUsername("dimi")
                 .setPassword(passwordEncoder.encode("asdasd"))
@@ -57,7 +57,7 @@ public class InitService {
                 .setRoles(userRoleRepository.findAll());
         userRepository.save(admin);
     }
-    private void initUser() {
+    void initUser() {
         var user = new UserEntity()
                 .setUsername("mimi")
                 .setPassword(passwordEncoder.encode("asdasd"))

@@ -11,6 +11,10 @@ public class CreateCommentDTO {
         this.message = message;
     }
 
+    public CreateCommentDTO() {
+
+    }
+
     public Long getPlayerId() {
         return playerId;
     }

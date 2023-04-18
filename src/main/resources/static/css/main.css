@@ -396,7 +396,7 @@ footer {
     text-decoration: none;
 }
 
-.register__para, .register__link {
+.register__para, .register__link,.button__home {
     color: white;
     text-decoration: none;
     margin-top: 5px;
@@ -405,7 +405,7 @@ footer {
     color:white;
 }
 
-.profile__container,.create__coach__container,.all__coaches,.container__create__player,.all__players__section,.container__admin{
+.profile__container,.create__coach__container,.all__coaches,.container__create__player,.all__players__section,.container__admin,.error__container{
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;

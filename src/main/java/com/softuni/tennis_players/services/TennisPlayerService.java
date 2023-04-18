@@ -64,6 +64,9 @@ public class TennisPlayerService {
                 .orElseThrow(IllegalArgumentException::new);
     }
 
+    public void deletePlayerById(long id) {
+        tennisPlayerRepository.deleteById(id);
+    }
 
 }
 

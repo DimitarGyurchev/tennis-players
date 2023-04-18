@@ -21,12 +21,11 @@
         <p th:text="'Nationality: ' + *{nationality}">Nationality</p>
         <p th:text="'Age: ' + *{age}">Age</p>
         <p th:text="'Ranking: ' + *{ranking}">Ranking</p>
-        <a class="all__players__btn" th:href="@{/details/{id}(id=*{id})}">Comment</a>
         <th:block sec:authorize="hasRole('ROLE_ADMIN')">
             <form
-                    th:action="@{/details/{id}(id=*{id})}"
+                    th:action="@{/alltennisplayers/{id}(id=*{id})}"
                     th:method="DELETE">
-                <input class="all__players__delete" type="submit" value="Delete Player">
+                <button type="submit" name="submit" value="value" class="all__players__btn">DELETE</button>
             </form>
         </th:block>
     </div>

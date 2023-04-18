@@ -23,7 +23,7 @@ public class SecurityConfiguration {
         http.
                         authorizeHttpRequests()
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/login").anonymous()
+                        .requestMatchers("/login","/register").anonymous()
                         .requestMatchers("/", "/login", "/register", "/error", "/details/**","/allcoaches","/alltennisplayers","/player-details").permitAll()
                         .anyRequest().authenticated().
                 and().
