@@ -27,25 +27,25 @@ public class AdminController {
         var allUsers = userService.getUsers();
         model.addAttribute("users", allUsers);
         return "admin";
-    }
-    @DeleteMapping("/remove-roles/admin/{id}")
-    public String deleteUser(@PathVariable("id") Long userId){
-        userRepository.deleteById(userId);
-        return "redirect:/admin";
-    }
-    @PatchMapping("/remove-roles/admin/{id}")
-    public String deleteRole(@PathVariable("id") Long userId){
-        var user = userService.getUserById(userId);
-        user.setRoles(userRoleRepository.findUserRoleByRole(UserRoleEnum.USER));
-        userRepository.save(user);
-        return "redirect:/admin";
-    }
-    @PatchMapping("/add-roles/admin/{id}")
-    public String giveAdminRole(@PathVariable("id") Long userId){
-        var user = userService.getUserById(userId);
-        var admin = new UserRoleEntity().setRole(UserRoleEnum.ADMIN);
-        user.setRoles(userRoleRepository.findAll());
-        userRepository.save(user);
-        return "redirect:/admin";
-    }
-}
+    }}
+//    @DeleteMapping("/remove-roles/admin/{id}")
+//    public String deleteUser(@PathVariable("id") Long userId){
+//        userRepository.deleteById(userId);
+//        return "redirect:/admin";
+//    }
+//    @PatchMapping("/remove-roles/admin/{id}")
+//    public String deleteRole(@PathVariable("id") Long userId){
+//        var user = userService.getUserById(userId);
+//        user.setRoles(userRoleRepository.findUserRoleByRole(UserRoleEnum.USER));
+//        userRepository.save(user);
+//        return "redirect:/admin";
+//    }
+//    @PatchMapping("/add-roles/admin/{id}")
+//    public String giveAdminRole(@PathVariable("id") Long userId){
+//        var user = userService.getUserById(userId);
+//        var admin = new UserRoleEntity().setRole(UserRoleEnum.ADMIN);
+//        user.setRoles(userRoleRepository.findAll());
+//        userRepository.save(user);
+//        return "redirect:/admin";
+//    }
+//}

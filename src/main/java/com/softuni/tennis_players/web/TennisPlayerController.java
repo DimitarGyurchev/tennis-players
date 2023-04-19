@@ -37,49 +37,51 @@ public class TennisPlayerController {
         this.coachService = coachService;
         this.tennisPlayerRepository = tennisPlayerRepository;
     }
+
     @GetMapping("/createTennisPlayer")
-    public String getPlayer(Model model){
+    public String getPlayer(Model model) {
         List<CoachEntity> coaches = coachService.getAllCoaches();
         model.addAttribute("coaches", coaches);
         List<SponsorEntity> sponsors = sponsorService.getAllSponsors();
-        model.addAttribute("sponsors",sponsors);
+        model.addAttribute("sponsors", sponsors);
         return "createTennisPlayer";
     }
 
     @ModelAttribute("addTennisPlayerDTO")
-    public AddTennisPlayerDTO init(){
+    public AddTennisPlayerDTO init() {
         return new AddTennisPlayerDTO();
     }
 
     @PostMapping("/createTennisPlayer")
     public String createPlayer(@Valid AddTennisPlayerDTO addTennisPlayerDTO,
                                BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes){
+                               RedirectAttributes redirectAttributes) {
         System.out.println(addTennisPlayerDTO.toString());
-        if (bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("addTennisPlayerDTO",addTennisPlayerDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addTennisPlayerDTO",bindingResult);
-           return "redirect:/createTennisPlayer";
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("addTennisPlayerDTO", addTennisPlayerDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addTennisPlayerDTO", bindingResult);
+            return "redirect:/createTennisPlayer";
         }
         this.tennisPlayerService.addPlayer(addTennisPlayerDTO);
         return "redirect:/alltennisplayers";
     }
 
     @GetMapping("/alltennisplayers")
-    public String getAllPlayers(Model model){
+    public String getAllPlayers(Model model) {
         var allPlayers = tennisPlayerService.getAllPlayers();
         model.addAttribute("players", allPlayers);
         return "alltennisplayers";
     }
-    @GetMapping("/details/{id}")
-    public String getPlayer(@PathVariable("id") Long playerId, Model model){
-        TennisPlayerViewDTO player = tennisPlayerService.getPlayer(playerId);
-        model.addAttribute("player",player);
-        return "tennisplayer-details";
-    }
-    @DeleteMapping("/alltennisplayers/{id}")
-    public String deletePlayer(@PathVariable("id") Long playerId){
-        tennisPlayerService.deletePlayerById(playerId);
-        return "redirect:/alltennisplayers";
-    }
 }
+//    @GetMapping("/details/{id}")
+//    public String getPlayer(@PathVariable("id") Long playerId, Model model){
+//        TennisPlayerViewDTO player = tennisPlayerService.getPlayer(playerId);
+//        model.addAttribute("player",player);
+//        return "tennisplayer-details";
+//    }
+//    @DeleteMapping("/alltennisplayers/{id}")
+//    public String deletePlayer(@PathVariable("id") Long playerId){
+//        tennisPlayerService.deletePlayerById(playerId);
+//        return "redirect:/alltennisplayers";
+//    }
+//}
